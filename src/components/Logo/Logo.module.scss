@@ -1,0 +1,19 @@
+.title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  color: #2196f3;
+
+  text-align: center;
+
+  cursor: default;
+}
+
+.appear {
+  transform: translateX(-100%);
+}
+
+.appearActive {
+  transform: translateX(0);
+  transition: all 500ms linear;
+}

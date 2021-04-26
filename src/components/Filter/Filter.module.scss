@@ -1,0 +1,40 @@
+.filter {
+  margin-bottom: 15px;
+}
+
+.title {
+  margin-bottom: 15px;
+
+  color: #2196f3;
+
+  text-align: center;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #333232;
+
+  &__text {
+    margin-bottom: 5px;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus {
+    outline: transparent;
+    border: 1px solid #2196f3;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 350px;
+  }
+}
