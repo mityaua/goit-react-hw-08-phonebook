@@ -14,7 +14,7 @@ const fetchContacts = () => async dispatch => {
 
     dispatch(actions.fetchContactsSuccess(data));
   } catch (error) {
-    dispatch(actions.fetchContactsError(error));
+    dispatch(actions.fetchContactsError(error.message));
     toast.error(error.message);
   }
 };
@@ -30,7 +30,7 @@ const addContact = (name, number) => async dispatch => {
 
     dispatch(actions.addContactSuccess(data));
   } catch (error) {
-    dispatch(actions.addContactError(error));
+    dispatch(actions.addContactError(error.message));
     toast.error(error.message);
   }
 };
@@ -44,7 +44,7 @@ const deleteContact = id => async dispatch => {
 
     dispatch(actions.deleteContactSuccess(id));
   } catch (error) {
-    dispatch(actions.deleteContactError(error));
+    dispatch(actions.deleteContactError(error.message));
     toast.error(error.message);
   }
 };

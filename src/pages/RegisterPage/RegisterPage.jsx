@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
+
+import { authOperations } from '../../redux/auth';
 
 import styles from './RegisterPage.module.scss';
 
@@ -8,7 +11,7 @@ const initialState = {
   password: '',
 };
 
-const RegisterPage = () => {
+const RegisterPage = ({ onRegister }) => {
   const [state, setState] = useState(initialState);
   const { name, email, password } = state;
 
@@ -24,7 +27,7 @@ const RegisterPage = () => {
   const hanldeSubmit = event => {
     event.preventDefault();
 
-    console.log(name, email, password);
+    onRegister(state);
 
     resetForm();
   };
@@ -88,4 +91,8 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+const mapDispatchToProps = {
+  onRegister: authOperations.register,
+};
+
+export default connect(null, mapDispatchToProps)(RegisterPage);

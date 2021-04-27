@@ -10,6 +10,7 @@ import {
 import logger from 'redux-logger'; // Импорт функции логгирования
 
 import { contactsReducer } from './contacts'; // Импорт редюсера по контактам
+import { authReducer } from './auth'; // Импорт редюсера по авторизации
 
 // Создание прослоек + логгер. Важен порядок!
 const middleware = [
@@ -21,10 +22,16 @@ const middleware = [
   logger,
 ];
 
+// Включить перед деплоем
+// if (process.env.NODE_ENV === `development`) {
+//   middleware.push(logger);
+// }
+
 // Создание хранилища (корневой редюсер + прослойки + тулзы только для разработки)
 const store = configureStore({
   reducer: {
     contacts: contactsReducer,
+    auth: authReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

@@ -31,7 +31,7 @@ const ContactsPage = () => {
 
       {isLoadingContacts && <Loader />}
 
-      {isError && <Alert severity="error">{isError.message}</Alert>}
+      {isError && <Alert severity="error">{isError}</Alert>}
     </>
   );
 };
