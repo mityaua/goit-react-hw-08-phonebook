@@ -11,7 +11,7 @@ const initialState = {
   number: '',
 };
 
-const ContactForm = ({ contacts, onSubmit }) => {
+const ContactForm = ({ contacts, isLoading, onSubmit }) => {
   const [state, setState] = useState(initialState);
   const { name, number } = state;
 
@@ -70,6 +70,7 @@ const ContactForm = ({ contacts, onSubmit }) => {
           onChange={hanldeChange} // Наблюдающий метод
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+          disabled={isLoading}
           required
         />
       </label>
@@ -86,6 +87,7 @@ const ContactForm = ({ contacts, onSubmit }) => {
           onChange={hanldeChange} // Наблюдающий метод
           pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
           title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
+          disabled={isLoading}
           required
         />
       </label>

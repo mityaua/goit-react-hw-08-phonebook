@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import actions from './contacts-actions'; // Импорт экшенов из контактов в операции
 
-axios.defaults.baseURL = 'http://localhost:2121';
+// axios.defaults.baseURL = 'http://localhost:2121';
 
 // Асинхронная операция получения списка контактов (делает запрос, диспатчит экшн получения)
 const fetchContacts = () => async dispatch => {

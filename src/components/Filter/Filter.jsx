@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Filter.module.scss';
 
 // Принимает значение с поля фильтра и метод пишущий в стейт
-const Filter = ({ value, onChange }) => (
+const Filter = ({ value, isLoading, onChange }) => (
   <div className={styles.filter}>
     <h2 className={styles.title}>Contacts</h2>
 
@@ -17,7 +17,8 @@ const Filter = ({ value, onChange }) => (
         value={value}
         onChange={onChange}
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+        title="Find contacts by name"
+        disabled={isLoading}
         required
       />
     </label>

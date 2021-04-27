@@ -7,6 +7,7 @@ import ContactForm from './ContactForm'; // Импорт компонента ф
 // Из глобального стейта в пропы компонента ContactForm
 const mapStateToProps = state => ({
   contacts: contactsSelectors.getContacts(state),
+  isLoading: contactsSelectors.getLoading(state),
 });
 
 // Из глобального стейта в пропы компонента ContactForm - методы

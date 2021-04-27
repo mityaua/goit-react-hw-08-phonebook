@@ -6,6 +6,7 @@ import Filter from './Filter';
 
 const mapStateToProps = state => ({
   value: contactsSelectors.getFilter(state),
+  isLoading: contactsSelectors.getLoading(state),
 });
 
 const mapDispatchToProps = distatch => ({

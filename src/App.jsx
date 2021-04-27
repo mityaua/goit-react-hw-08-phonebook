@@ -1,85 +1,53 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { Suspense, lazy } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import { ToastContainer } from 'react-toastify';
-import Alert from '@material-ui/lab/Alert';
 
-import { contactsOperations, contactsSelectors } from './redux/contacts'; // Импорт async операции запроса всех контактов и селектора лоадера и ошибки
+import routes from './routes';
 
 import Container from './components/Container';
-import Logo from './components/Logo';
-import ContactForm from './components/ContactForm';
-import Filter from './components/Filter';
-import ContactList from './components/ContactList';
+import AppBar from './components/AppBar';
+import AppFooter from './components/AppFooter';
 import Loader from './components/Loader';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-// Вариант без пропсов и без класса + хук для селекторов
+const HomePage = lazy(() =>
+  import('./pages/HomePage' /* webpackChunkName: "home-page" */),
+);
+const ContactsPage = lazy(() =>
+  import('./pages/ContactsPage' /* webpackChunkName: "contacts-page" */),
+);
+const RegisterPage = lazy(() =>
+  import('./pages/RegisterPage' /* webpackChunkName: "register-page" */),
+);
+const LoginPage = lazy(() =>
+  import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
+);
+const PageNotFound = lazy(() =>
+  import('./pages/PageNotFound' /* webpackChunkName: "404-page" */),
+);
+
 const App = () => {
-  const isLoadingContacts = useSelector(state =>
-    contactsSelectors.getLoading(state),
-  );
-  const isError = useSelector(state => contactsSelectors.getError(state));
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(contactsOperations.fetchContacts());
-  }, [dispatch]);
-
   return (
     <Container>
-      <Logo />
-
-      <ContactForm />
-
-      <Filter />
-
-      <ContactList />
-
-      {isLoadingContacts && <Loader />}
-
-      {isError && <Alert severity="error">{isError.message}</Alert>}
+      <AppBar />
 
       <ToastContainer autoClose={2500} />
+
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          <Route exact path={routes.home} component={HomePage} />
+          <Route path={routes.contacts} component={ContactsPage} />
+          <Route path={routes.register} component={RegisterPage} />
+          <Route path={routes.login} component={LoginPage} />
+          <Route component={PageNotFound} />
+        </Switch>
+      </Suspense>
+
+      <AppFooter />
     </Container>
   );
 };
 
 export default App;
-
-// Вариант с пропсами через ToProps и без класса
-// const App = ({ isLoadingContacts, isError, fetchContactsOnMOunt }) => {
-//   useEffect(() => {
-//     fetchContactsOnMOunt();
-//   }, [fetchContactsOnMOunt]);
-
-//   return (
-//     <Container>
-//       <Logo />
-
-//       <ContactForm />
-
-//       <Filter />
-
-//       <ContactList />
-
-//       {isLoadingContacts && <Loader />}
-
-//       {isError && <Alert severity="error">{isError.message}</Alert>}
-
-//       <ToastContainer autoClose={2500} />
-//     </Container>
-//   );
-// };
-
-// const mapStateToProps = state => ({
-//   isLoadingContacts: contactsSelectors.getLoading(state),
-//   isError: contactsSelectors.getError(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   fetchContactsOnMount: () => dispatch(contactsOperations.fetchContacts()),
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
