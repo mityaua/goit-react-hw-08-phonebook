@@ -5,8 +5,16 @@ import authActions from './auth-actions';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
-// eslint-disable-next-line
-const token = {};
+// Обьект токена
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
 
 // Операция регистрации юзера
 const register = credentials => async dispatch => {
@@ -15,6 +23,7 @@ const register = credentials => async dispatch => {
   try {
     const { data } = await axios.post('/users/signup', credentials);
 
+    token.set(data.token);
     dispatch(authActions.registerSuccess(data));
   } catch (error) {
     dispatch(authActions.registerError(error.message));
@@ -22,9 +31,35 @@ const register = credentials => async dispatch => {
   }
 };
 
-const logIn = () => dispatch => {};
+// Операция авторизации юзера
+const logIn = credentials => async dispatch => {
+  dispatch(authActions.loginRequest());
 
-const logOut = () => dispatch => {};
+  try {
+    const { data } = await axios.post('/users/login', credentials);
+
+    token.set(data.token);
+    dispatch(authActions.loginSuccess(data));
+  } catch (error) {
+    dispatch(authActions.loginError(error.message));
+    toast.error(error.message);
+  }
+};
+
+// Операция выхода из профиля
+const logOut = () => async dispatch => {
+  dispatch(authActions.logoutRequest());
+
+  try {
+    await axios.post('/users/logout');
+
+    token.unset();
+    dispatch(authActions.logoutSuccess());
+  } catch (error) {
+    dispatch(authActions.logoutError(error.message));
+    toast.error(error.message);
+  }
+};
 
 const getCurrentUser = () => (dispatch, getState) => {};
 

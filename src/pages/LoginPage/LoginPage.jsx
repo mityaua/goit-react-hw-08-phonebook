@@ -1,4 +1,7 @@
+import { connect } from 'react-redux';
 import { useState } from 'react';
+
+import { authOperations } from '../../redux/auth/';
 
 import styles from './LoginPage.module.scss';
 
@@ -7,7 +10,7 @@ const initialState = {
   password: '',
 };
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
   const [state, setState] = useState(initialState);
   const { email, password } = state;
 
@@ -22,6 +25,8 @@ const LoginPage = () => {
 
   const hanldeSubmit = event => {
     event.preventDefault();
+
+    onLogin(state);
 
     resetForm();
   };
@@ -69,4 +74,8 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+const mapDispatchToProps = {
+  onLogin: authOperations.logIn,
+};
+
+export default connect(null, mapDispatchToProps)(LoginPage);

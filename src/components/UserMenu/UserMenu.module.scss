@@ -1,1 +1,21 @@
 // User menu navigation
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin-right: 5px;
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+}
+
+.welcome {
+  margin-right: 5px;
+}
+
+.button {
+}

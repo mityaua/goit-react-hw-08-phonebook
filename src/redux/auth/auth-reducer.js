@@ -6,16 +6,25 @@ const initialUserState = {
   email: null,
 };
 
+// Редюсер для регистрации, авторизации и выхода из профиля
 const user = createReducer(initialUserState, {
   [authActions.registerSuccess]: (_, { payload }) => payload.user,
+  [authActions.loginSuccess]: (_, { payload }) => payload.user,
+  [authActions.logoutSuccess]: () => initialUserState,
 });
 
+// Редюсер для токенов
 const token = createReducer(null, {
   [authActions.registerSuccess]: (_, { payload }) => payload.token,
+  [authActions.loginSuccess]: (_, { payload }) => payload.token,
+  [authActions.logoutSuccess]: () => null,
 });
 
+// Редюсер для обработки ошибок
 const error = createReducer(null, {
   [authActions.registerError]: (_, { payload }) => payload,
+  [authActions.loginError]: (_, { payload }) => payload,
+  [authActions.logoutError]: (_, { payload }) => payload,
 });
 
 export default combineReducers({
