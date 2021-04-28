@@ -61,7 +61,27 @@ const logOut = () => async dispatch => {
   }
 };
 
-const getCurrentUser = () => (dispatch, getState) => {};
+// Операция получения текущего пользователя (проверяем локальное хранилище через персист)
+const getCurrentUser = () => async (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+
+  if (!persistedToken) return;
+
+  token.set(persistedToken);
+
+  dispatch(authActions.getCurrentUserRequest());
+
+  try {
+    const { data } = await axios.get('/users/current');
+
+    dispatch(authActions.getCurrentUserSuccess(data));
+  } catch (error) {
+    dispatch(authActions.getCurrentUserError(error.message));
+    toast.error(error.message);
+  }
+};
 
 // eslint-disable-next-line
 export default { register, logIn, logOut, getCurrentUser };

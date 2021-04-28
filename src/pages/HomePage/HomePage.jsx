@@ -1,5 +1,5 @@
-import Logo from '../../components/Logo';
+import Title from '../../components/Title';
 
-const HomePage = () => <Logo />;
+const HomePage = () => <Title>Phonebook</Title>;
 
 export default HomePage;

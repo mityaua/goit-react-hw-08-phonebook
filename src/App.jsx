@@ -1,9 +1,11 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import { ToastContainer } from 'react-toastify';
 
 import routes from './routes';
+import { authOperations } from './redux/auth';
 
 import Container from './components/Container';
 import AppBar from './components/AppBar';
@@ -28,7 +30,11 @@ const PageNotFound = lazy(() =>
   import('./pages/PageNotFound' /* webpackChunkName: "404-page" */),
 );
 
-const App = () => {
+const App = ({ getCurrentUserOnLoad }) => {
+  useEffect(() => {
+    getCurrentUserOnLoad();
+  }, [getCurrentUserOnLoad]);
+
   return (
     <Container>
       <AppBar />
@@ -50,4 +56,8 @@ const App = () => {
   );
 };
 
-export default App;
+const mapDispatchToProps = {
+  getCurrentUserOnLoad: authOperations.getCurrentUser,
+};
+
+export default connect(null, mapDispatchToProps)(App);

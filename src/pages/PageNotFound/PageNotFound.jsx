@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import routes from '../../routes';
 
+import Title from '../../components/Title';
+
 import { ReactComponent as SpaceImage } from '../../assets/images/404.svg';
 
 import styles from './PageNotFound.module.scss';
@@ -14,7 +16,7 @@ const PageNotFound = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Houston, we’ve had an ERROR</h1>
+      <Title>Houston, we’ve had an ERROR</Title>
 
       <SpaceImage
         width="320px"

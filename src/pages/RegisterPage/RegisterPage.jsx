@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { authOperations } from '../../redux/auth';
 
+import Title from '../../components/Title';
+
 import styles from './RegisterPage.module.scss';
 
 const initialState = {
@@ -37,57 +39,61 @@ const RegisterPage = ({ onRegister }) => {
   };
 
   return (
-    <form className={styles.form} onSubmit={hanldeSubmit}>
-      <label className={styles.label}>
-        <span className={styles.label__text}>Name</span>
-        <input
-          type="text"
-          name="name"
-          placeholder="Your name"
-          aria-label="Input for your name"
-          className={styles.input}
-          value={name}
-          onChange={hanldeChange}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-          required
-        />
-      </label>
+    <div>
+      <Title>Create your account</Title>
 
-      <label className={styles.label}>
-        <span className={styles.label__text}>Email</span>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={hanldeChange}
-          className={styles.input}
-          placeholder="Your e-mail"
-          aria-label="Input for your Email"
-          required
-        />
-      </label>
+      <form className={styles.form} onSubmit={hanldeSubmit}>
+        <label className={styles.label}>
+          <span className={styles.label__text}>Name</span>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            aria-label="Input for your name"
+            className={styles.input}
+            value={name}
+            onChange={hanldeChange}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+            required
+          />
+        </label>
 
-      <label className={styles.label}>
-        <span className={styles.label__text}>Password</span>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={hanldeChange}
-          className={styles.input}
-          placeholder="Your strong password"
-          aria-label="Input for your password"
-          required
-        />
-      </label>
+        <label className={styles.label}>
+          <span className={styles.label__text}>Email</span>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={hanldeChange}
+            className={styles.input}
+            placeholder="Your e-mail"
+            aria-label="Input for your Email"
+            required
+          />
+        </label>
 
-      <div className={styles.button__wrapper}>
-        <button type="submit" className={styles.button}>
-          Create account
-        </button>
-      </div>
-    </form>
+        <label className={styles.label}>
+          <span className={styles.label__text}>Password</span>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={hanldeChange}
+            className={styles.input}
+            placeholder="Your strong password"
+            aria-label="Input for your password"
+            required
+          />
+        </label>
+
+        <div className={styles.button__wrapper}>
+          <button type="submit" className={styles.button}>
+            Create account
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

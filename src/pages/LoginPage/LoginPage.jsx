@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 import { authOperations } from '../../redux/auth/';
 
+import Title from '../../components/Title';
+
 import styles from './LoginPage.module.scss';
 
 const initialState = {
@@ -36,41 +38,45 @@ const LoginPage = ({ onLogin }) => {
   };
 
   return (
-    <form className={styles.form} onSubmit={hanldeSubmit}>
-      <label className={styles.label}>
-        <span className={styles.label__text}>Email</span>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={hanldeChange}
-          className={styles.input}
-          placeholder="Your e-mail"
-          aria-label="Input for your email"
-          required
-        />
-      </label>
+    <div>
+      <Title>Log in to Phonebook</Title>
 
-      <label className={styles.label}>
-        <span className={styles.label__text}>Password</span>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={hanldeChange}
-          className={styles.input}
-          placeholder="Your password"
-          aria-label="Input for your password"
-          required
-        />
-      </label>
+      <form className={styles.form} onSubmit={hanldeSubmit}>
+        <label className={styles.label}>
+          <span className={styles.label__text}>Email</span>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={hanldeChange}
+            className={styles.input}
+            placeholder="Your e-mail"
+            aria-label="Input for your email"
+            required
+          />
+        </label>
 
-      <div className={styles.button__wrapper}>
-        <button type="submit" className={styles.button}>
-          Sign In
-        </button>
-      </div>
-    </form>
+        <label className={styles.label}>
+          <span className={styles.label__text}>Password</span>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={hanldeChange}
+            className={styles.input}
+            placeholder="Your password"
+            aria-label="Input for your password"
+            required
+          />
+        </label>
+
+        <div className={styles.button__wrapper}>
+          <button type="submit" className={styles.button}>
+            Sign In
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

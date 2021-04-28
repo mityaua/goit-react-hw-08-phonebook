@@ -1,9 +1,9 @@
 import React, { createRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import styles from './Logo.module.scss';
+import styles from './Title.module.scss';
 
-const Logo = () => {
+const Title = ({ children }) => {
   const itemRef = createRef(null);
 
   return (
@@ -15,10 +15,10 @@ const Logo = () => {
       nodeRef={itemRef}
     >
       <h1 className={styles.title} ref={itemRef}>
-        Phonebook
+        {children}
       </h1>
     </CSSTransition>
   );
 };
 
-export default Logo;
+export default Title;

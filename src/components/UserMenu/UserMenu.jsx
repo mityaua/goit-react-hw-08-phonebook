@@ -11,9 +11,19 @@ const UserMenu = ({ email, onLogOut }) => (
       title="Your avatar"
       className={styles.avatar}
     />
-    <span className={styles.welcome}>Welcome, {email}</span>
-    <button type="button" onClick={onLogOut} className={styles.button}>
-      Log Out
+
+    <span className={styles.welcome}>
+      Welcome, <span className={styles.email}>{email}</span>
+    </span>
+
+    <button
+      type="button"
+      title="Log out"
+      aria-label="Log out"
+      onClick={onLogOut}
+      className={styles.button}
+    >
+      Log out
     </button>
   </div>
 );
