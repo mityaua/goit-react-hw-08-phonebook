@@ -11,8 +11,7 @@
 
 .link {
   display: block;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  // padding: 20px 0;
 
   font-weight: 500;
   text-decoration: none;
@@ -31,5 +30,9 @@
     color: #2196f3;
 
     text-decoration: none;
+  }
+
+  @media screen and (min-width: 767px) {
+    padding: 20px 0;
   }
 }

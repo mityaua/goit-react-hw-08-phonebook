@@ -72,7 +72,7 @@ const LoginPage = ({ onLogin }) => {
 
         <div className={styles.button__wrapper}>
           <button type="submit" className={styles.button}>
-            Sign In
+            Log in
           </button>
         </div>
       </form>

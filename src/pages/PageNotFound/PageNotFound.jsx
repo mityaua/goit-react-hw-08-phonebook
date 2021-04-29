@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import routes from '../../routes';
 
 import Title from '../../components/Title';
@@ -7,12 +7,6 @@ import { ReactComponent as SpaceImage } from '../../assets/images/404.svg';
 import styles from './PageNotFound.module.scss';
 
 const PageNotFound = () => {
-  const history = useHistory();
-
-  const handleGoBack = () => {
-    history.push(routes.home);
-  };
-
   return (
     <div className={styles.container}>
       <Title>Houston, we’ve had an ERROR</Title>
@@ -29,9 +23,14 @@ const PageNotFound = () => {
         The page you’re looking for was removed, renamed, or got lost in space.
       </p>
 
-      <button type="button" className={styles.button} onClick={handleGoBack}>
+      <NavLink
+        to={routes.home}
+        className={styles.button}
+        title="Return to Home"
+        aria-label="Return to Home page"
+      >
         Return to Home
-      </button>
+      </NavLink>
     </div>
   );
 };

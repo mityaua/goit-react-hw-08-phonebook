@@ -1,6 +1,12 @@
 // Main navigation
 .list {
   display: flex;
+
+  margin-bottom: 15px;
+
+  @media screen and (min-width: 767px) {
+    margin-bottom: 0;
+  }
 }
 
 .item {
@@ -11,8 +17,6 @@
 
 .link {
   display: block;
-  padding-top: 20px;
-  padding-bottom: 20px;
 
   font-weight: 500;
   text-decoration: none;
@@ -31,5 +35,9 @@
     color: #2196f3;
 
     text-decoration: none;
+  }
+
+  @media screen and (min-width: 767px) {
+    padding: 20px 0;
   }
 }
