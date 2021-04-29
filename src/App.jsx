@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import { ToastContainer } from 'react-toastify';
 
@@ -11,6 +11,8 @@ import Container from './components/Container';
 import AppBar from './components/AppBar';
 import AppFooter from './components/AppFooter';
 import Loader from './components/Loader';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -39,19 +41,37 @@ const App = ({ getCurrentUserOnLoad }) => {
     <Container>
       <AppBar />
 
-      <ToastContainer autoClose={2500} />
-
       <Suspense fallback={<Loader />}>
         <Switch>
-          <Route exact path={routes.home} component={HomePage} />
-          <Route path={routes.contacts} component={ContactsPage} />
-          <Route path={routes.register} component={RegisterPage} />
-          <Route path={routes.login} component={LoginPage} />
-          <Route component={PageNotFound} />
+          <PublicRoute exact path={routes.home} component={HomePage} />
+
+          <PrivateRoute
+            path={routes.contacts}
+            component={ContactsPage}
+            redirectTo={routes.login}
+          />
+
+          <PublicRoute
+            path={routes.register}
+            component={RegisterPage}
+            restricted
+            redirectTo={routes.contacts}
+          />
+
+          <PublicRoute
+            path={routes.login}
+            component={LoginPage}
+            restricted
+            redirectTo={routes.contacts}
+          />
+
+          <PublicRoute component={PageNotFound} />
         </Switch>
       </Suspense>
 
       <AppFooter />
+
+      <ToastContainer autoClose={2500} />
     </Container>
   );
 };

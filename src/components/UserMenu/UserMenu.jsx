@@ -5,12 +5,14 @@ import styles from './UserMenu.module.scss';
 
 const UserMenu = ({ email, onLogOut }) => (
   <div className={styles.profile}>
-    <img
-      src={`https://eu.ui-avatars.com/api/?background=2196f3&color=fff&name=${email}`}
-      alt="avatar"
-      title="Your avatar"
-      className={styles.avatar}
-    />
+    <div className={styles.thumb}>
+      <img
+        src={`https://eu.ui-avatars.com/api/?background=2196f3&color=fff&&length=1&name=${email}`}
+        alt="avatar"
+        title="Your avatar"
+        className={styles.avatar}
+      />
+    </div>
 
     <span className={styles.welcome}>
       Welcome, <span className={styles.email}>{email}</span>

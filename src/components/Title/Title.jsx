@@ -14,9 +14,11 @@ const Title = ({ children }) => {
       classNames={styles}
       nodeRef={itemRef}
     >
-      <h1 className={styles.title} ref={itemRef}>
-        {children}
-      </h1>
+      <div className={styles.wrapper}>
+        <h1 className={styles.title} ref={itemRef}>
+          {children}
+        </h1>
+      </div>
     </CSSTransition>
   );
 };

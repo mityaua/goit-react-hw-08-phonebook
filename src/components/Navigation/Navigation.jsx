@@ -1,9 +1,12 @@
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
+import { authSelectors } from '../../redux/auth';
 import routes from '../../routes';
 
 import styles from './Navigation.module.scss';
 
-const Navigation = () => (
+const Navigation = ({ isAuthenticated }) => (
   <nav>
     <ul className={styles.list}>
       <li className={styles.item}>
@@ -17,17 +20,23 @@ const Navigation = () => (
         </NavLink>
       </li>
 
-      <li>
-        <NavLink
-          to={routes.contacts}
-          className={styles.link}
-          activeClassName={styles['link--active']}
-        >
-          Contacts
-        </NavLink>
-      </li>
+      {isAuthenticated && (
+        <li>
+          <NavLink
+            to={routes.contacts}
+            className={styles.link}
+            activeClassName={styles['link--active']}
+          >
+            Contacts
+          </NavLink>
+        </li>
+      )}
     </ul>
   </nav>
 );
 
-export default Navigation;
+const mapStateToProps = state => ({
+  isAuthenticated: authSelectors.getIsAuthenticated(state),
+});
+
+export default connect(mapStateToProps, null)(Navigation);

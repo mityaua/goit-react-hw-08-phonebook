@@ -6,7 +6,7 @@ const AppFooter = () => {
       <small className={styles.text}>
         &copy; {new Date().getFullYear()} Developed with{' '}
         <span role="img" aria-label="heart" className={styles.heart}>
-          🧡
+          ❤
         </span>
         by
         <a
