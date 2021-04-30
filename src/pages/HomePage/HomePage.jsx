@@ -7,35 +7,32 @@ import routes from '../../routes';
 
 import styles from './HomePage.module.scss';
 
-const HomePage = () => {
-  return (
-    <main>
-      <section className={styles.container}>
-        <Title>Phonebook</Title>
+// Компонент главной страницы приложения
+const HomePage = () => (
+  <main>
+    <section className={styles.container}>
+      <Title>Phonebook</Title>
 
-        <div className={styles.thumb}>
-          <HoleImage
-            title="Try in now!"
-            alt="Blackhole"
-            className={styles.image}
-          />
-        </div>
-
-        <p className={styles.text}>
-          Fast, Secure and Mobile Friendly React App.
-        </p>
-
-        <NavLink
-          to={routes.contacts}
-          className={styles.button}
+      <div className={styles.thumb}>
+        <HoleImage
           title="Try in now!"
-          aria-label="Go to contacts"
-        >
-          Try in now!
-        </NavLink>
-      </section>
-    </main>
-  );
-};
+          alt="Blackhole"
+          className={styles.image}
+        />
+      </div>
+
+      <p className={styles.text}>Fast, Secure and Mobile Friendly React App.</p>
+
+      <NavLink
+        to={routes.contacts}
+        className={styles.button}
+        title="Try in now!"
+        aria-label="Go to contacts"
+      >
+        Try in now!
+      </NavLink>
+    </section>
+  </main>
+);
 
 export default HomePage;

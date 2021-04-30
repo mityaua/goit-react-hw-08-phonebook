@@ -1,5 +1,4 @@
-// User menu navigation
-
+// User menu navigation container
 .profile {
   display: flex;
   align-items: center;
@@ -11,11 +10,13 @@
   }
 }
 
+// User avatar container
 .thumb {
   width: 32px;
   margin-right: 10px;
 }
 
+// User avatar container
 .avatar {
   width: 100%;
 
@@ -35,14 +36,17 @@
   }
 }
 
+// User greetings text
 .welcome {
   margin-right: 10px;
 }
 
+// User email
 .email {
   font-weight: 500;
 }
 
+// Logout button
 .button {
   padding: 5px;
   border: 0px solid transparent;

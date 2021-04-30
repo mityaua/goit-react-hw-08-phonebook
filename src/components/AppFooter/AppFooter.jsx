@@ -1,8 +1,9 @@
 import styles from './AppFooter.module.scss';
 
+// Компонент футера приложения
 const AppFooter = () => {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <small className={styles.text}>
         &copy; {new Date().getFullYear()} Developed with{' '}
         <span role="img" aria-label="heart" className={styles.heart}>

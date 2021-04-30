@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
   isLoading: contactsSelectors.getLoading(state),
 });
 
-// Из глобального стейта в пропы компонента ContactForm - методы
+// Операции в пропы компонента ContactForm
 const mapDispatchToProps = dispatch => ({
   onSubmit: (name, number) =>
     dispatch(contactsOperations.addContact(name, number)),

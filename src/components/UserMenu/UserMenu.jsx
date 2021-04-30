@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
 
 import styles from './UserMenu.module.scss';
 
+// Компонент меню пользователя после авторизации
 const UserMenu = ({ email, onLogOut }) => (
   <div className={styles.profile}>
     <div className={styles.thumb}>
@@ -25,10 +27,15 @@ const UserMenu = ({ email, onLogOut }) => (
       onClick={onLogOut}
       className={styles.button}
     >
-      Log out
+      Logout
     </button>
   </div>
 );
+
+UserMenu.propTypes = {
+  email: PropTypes.string.isRequired,
+  onLogOut: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   email: authSelectors.getUserEmail(state),

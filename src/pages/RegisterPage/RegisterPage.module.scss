@@ -1,4 +1,4 @@
-// Sign up form
+// Sign up form on Sign up page
 .form {
   width: 100%;
   margin: 0px auto 15px;
@@ -11,6 +11,7 @@
   }
 }
 
+// Labels from inputs
 .label {
   display: flex;
   flex-direction: column;
@@ -18,12 +19,14 @@
   margin-bottom: 15px;
 
   color: #333232;
-
-  &__text {
-    margin-bottom: 5px;
-  }
 }
 
+// Labels text
+.text {
+  margin-bottom: 5px;
+}
+
+// Form inputs
 .input {
   padding: 11px;
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -36,11 +39,12 @@
   }
 }
 
-// Sign in button
-.button__wrapper {
+// Sign up container
+.container {
   text-align: center;
 }
 
+// Sign up button
 .button {
   min-width: 150px;
   height: 40px;

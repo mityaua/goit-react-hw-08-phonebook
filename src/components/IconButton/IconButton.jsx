@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 import styles from './IconButton.module.scss';
 
+// Компонент кнопки-иконки
 const IconButton = ({ children, onClick, ...allyProps }) => (
   <button
     type="button"

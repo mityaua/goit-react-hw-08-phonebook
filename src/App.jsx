@@ -32,10 +32,11 @@ const PageNotFound = lazy(() =>
   import('./pages/PageNotFound' /* webpackChunkName: "404-page" */),
 );
 
-const App = ({ getCurrentUserOnLoad }) => {
+const App = ({ getCurrentUser }) => {
+  // Получение текущего юзера при маунте приложения
   useEffect(() => {
-    getCurrentUserOnLoad();
-  }, [getCurrentUserOnLoad]);
+    getCurrentUser();
+  }, [getCurrentUser]);
 
   return (
     <Container>
@@ -77,7 +78,7 @@ const App = ({ getCurrentUserOnLoad }) => {
 };
 
 const mapDispatchToProps = {
-  getCurrentUserOnLoad: authOperations.getCurrentUser,
+  getCurrentUser: authOperations.getCurrentUser,
 };
 
 export default connect(null, mapDispatchToProps)(App);

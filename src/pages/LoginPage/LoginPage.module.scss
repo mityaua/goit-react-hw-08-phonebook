@@ -1,5 +1,4 @@
-// Log In form
-
+// Log in form on Log in page
 .form {
   width: 100%;
   margin: 0 auto 15px;
@@ -12,6 +11,7 @@
   }
 }
 
+// Labels on inputs
 .label {
   display: flex;
   flex-direction: column;
@@ -19,12 +19,14 @@
   margin-bottom: 15px;
 
   color: #333232;
-
-  &__text {
-    margin-bottom: 5px;
-  }
 }
 
+// Labels text
+.text {
+  margin-bottom: 5px;
+}
+
+// Form inputs
 .input {
   padding: 11px;
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -37,11 +39,12 @@
   }
 }
 
-// Sign in button
-.button__wrapper {
+// Log in button container
+.container {
   text-align: center;
 }
 
+// Log in button
 .button {
   min-width: 150px;
   height: 40px;

@@ -1,4 +1,4 @@
-// Main navigation
+// Navigation list
 .list {
   display: flex;
 
@@ -9,12 +9,14 @@
   }
 }
 
+// Navigation item
 .item {
   &:not(:last-child) {
     margin-right: 20px;
   }
 }
 
+// Link for navigation item
 .link {
   display: block;
 

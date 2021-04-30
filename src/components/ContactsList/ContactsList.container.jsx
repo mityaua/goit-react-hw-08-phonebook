@@ -2,16 +2,16 @@ import { connect } from 'react-redux'; // Импортирует коннект 
 
 import { contactsOperations, contactsSelectors } from '../../redux/contacts'; // Импорт async операции удаления контакта и селектора всех контактов
 
-import ContactList from './ContactList'; // Импорт компонента списка контактов для обёртки в коннекте
+import ContactsList from './ContactsList'; // Импорт компонента списка контактов для обёртки в коннекте
 
-// Из стейта в пропы компонента ContactList - после фильтрации в селекторах
+// Из стейта в пропы компонента ContactsList - после фильтрации в селекторах
 const mapStateToProps = state => ({
   contacts: contactsSelectors.getfilteredContacts(state),
 });
 
-// Из стейта в пропы компонента ContactList - метод удаления контакта
+// Из стейта в пропы компонента ContactsList - метод удаления контакта
 const mapDispatchToProps = dispatch => ({
   onDeleteContact: id => dispatch(contactsOperations.deleteContact(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsList);

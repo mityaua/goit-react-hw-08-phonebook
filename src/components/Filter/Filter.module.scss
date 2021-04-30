@@ -1,7 +1,9 @@
-.filter {
+// Filter container
+.container {
   margin-bottom: 15px;
 }
 
+// Filter title
 .title {
   margin-bottom: 10px;
 
@@ -10,6 +12,7 @@
   text-align: center;
 }
 
+// Label for filter input
 .label {
   display: flex;
   flex-direction: column;
@@ -22,6 +25,7 @@
   }
 }
 
+// Filter input
 .input {
   width: 100%;
   padding: 11px;

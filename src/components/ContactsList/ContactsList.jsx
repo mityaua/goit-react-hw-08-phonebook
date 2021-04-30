@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 
 import ContactItem from '../ContactItem';
 
-import styles from './ContactList.module.scss';
+import styles from './ContactsList.module.scss';
 
-// Принимает все контакты и пробрасывает дальше метод для удаления контакта
-const ContactList = ({ contacts, onDeleteContact }) => {
+// Компонент списка контактов
+const ContactsList = ({ contacts, onDeleteContact }) => {
   return (
     <ul className={styles.list}>
       {contacts.map(contact => (
@@ -19,7 +19,7 @@ const ContactList = ({ contacts, onDeleteContact }) => {
   );
 };
 
-ContactList.propTypes = {
+ContactsList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -30,4 +30,4 @@ ContactList.propTypes = {
   onDeleteContact: PropTypes.func.isRequired,
 };
 
-export default ContactList;
+export default ContactsList;

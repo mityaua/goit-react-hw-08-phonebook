@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 
@@ -13,6 +14,7 @@ const initialState = {
   password: '',
 };
 
+// Компонент страницы регистрации
 const RegisterPage = ({ onRegister }) => {
   const [state, setState] = useState(initialState);
   const { name, email, password } = state;
@@ -44,7 +46,7 @@ const RegisterPage = ({ onRegister }) => {
 
       <form className={styles.form} onSubmit={hanldeSubmit}>
         <label className={styles.label}>
-          <span className={styles.label__text}>Name</span>
+          <span className={styles.text}>Name</span>
           <input
             type="text"
             name="name"
@@ -60,7 +62,7 @@ const RegisterPage = ({ onRegister }) => {
         </label>
 
         <label className={styles.label}>
-          <span className={styles.label__text}>Email</span>
+          <span className={styles.text}>Email</span>
           <input
             type="email"
             name="email"
@@ -74,7 +76,7 @@ const RegisterPage = ({ onRegister }) => {
         </label>
 
         <label className={styles.label}>
-          <span className={styles.label__text}>Password</span>
+          <span className={styles.text}>Password</span>
           <input
             type="password"
             name="password"
@@ -87,7 +89,7 @@ const RegisterPage = ({ onRegister }) => {
           />
         </label>
 
-        <div className={styles.button__wrapper}>
+        <div className={styles.container}>
           <button type="submit" className={styles.button}>
             Create account
           </button>
@@ -95,6 +97,10 @@ const RegisterPage = ({ onRegister }) => {
       </form>
     </div>
   );
+};
+
+RegisterPage.propTypes = {
+  onRegister: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {

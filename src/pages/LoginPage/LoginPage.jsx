@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 
@@ -12,6 +13,7 @@ const initialState = {
   password: '',
 };
 
+// Компонент страницы автозирации
 const LoginPage = ({ onLogin }) => {
   const [state, setState] = useState(initialState);
   const { email, password } = state;
@@ -43,7 +45,7 @@ const LoginPage = ({ onLogin }) => {
 
       <form className={styles.form} onSubmit={hanldeSubmit}>
         <label className={styles.label}>
-          <span className={styles.label__text}>Email</span>
+          <span className={styles.text}>Email</span>
           <input
             type="email"
             name="email"
@@ -57,7 +59,7 @@ const LoginPage = ({ onLogin }) => {
         </label>
 
         <label className={styles.label}>
-          <span className={styles.label__text}>Password</span>
+          <span className={styles.text}>Password</span>
           <input
             type="password"
             name="password"
@@ -70,7 +72,7 @@ const LoginPage = ({ onLogin }) => {
           />
         </label>
 
-        <div className={styles.button__wrapper}>
+        <div className={styles.container}>
           <button type="submit" className={styles.button}>
             Log in
           </button>
@@ -78,6 +80,10 @@ const LoginPage = ({ onLogin }) => {
       </form>
     </div>
   );
+};
+
+LoginPage.propTypes = {
+  onLogin: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {

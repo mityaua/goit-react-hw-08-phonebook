@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 
 import styles from './Filter.module.scss';
 
-// Принимает значение с поля фильтра и метод пишущий в стейт
+// Компонент фильтра контактов
 const Filter = ({ value, isLoading, onChange }) => (
-  <div className={styles.filter}>
+  <div className={styles.container}>
     <h2 className={styles.title}>Contacts</h2>
 
     <label className={styles.label}>
@@ -31,6 +31,7 @@ Filter.defaultProps = {
 
 Filter.propTypes = {
   value: PropTypes.string,
+  isLoading: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

@@ -3,6 +3,7 @@ import routes from '../../routes';
 
 import styles from './AuthNav.module.scss';
 
+// Компонент меню регистрации и авторизации
 const AuthNav = () => (
   <ul className={styles.list}>
     <li className={styles.item}>

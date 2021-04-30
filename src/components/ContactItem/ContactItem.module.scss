@@ -1,3 +1,4 @@
+// Contact styles
 .item {
   display: flex;
   justify-content: space-around;
@@ -30,6 +31,7 @@
   }
 }
 
+// Contact name
 .name {
   color: #333232;
 
@@ -37,6 +39,7 @@
   font-weight: 500;
 }
 
+// Contact number
 .number {
   margin-right: 15px;
 

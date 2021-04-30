@@ -1,14 +1,18 @@
-// Footer styles
+// Footer
+.footer {
+  padding: 20px 0;
+}
+
+// Footer text
 .text {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  padding: 20px 0;
-
   color: #4c527d;
 }
 
+// Footer emoji icon
 .heart {
   margin: 0 5px;
 
@@ -20,6 +24,7 @@
   cursor: default;
 }
 
+// Footer link
 .link {
   text-decoration: none;
   color: currentColor;
@@ -34,10 +39,12 @@
   }
 }
 
+// Name inside link
 .name {
   margin-left: 5px;
 }
 
+// Animation for emoji
 @keyframes heartbeat {
   0% {
     transform: scale(0.75);

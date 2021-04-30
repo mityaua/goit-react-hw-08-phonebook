@@ -1,9 +1,11 @@
-.wrapper {
+// Title container
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+// Title text
 .title {
   display: inline;
   margin: 10px 0;
@@ -28,6 +30,7 @@
   }
 }
 
+// Title react animation
 .appear {
   transform: translateX(-100%);
 }
