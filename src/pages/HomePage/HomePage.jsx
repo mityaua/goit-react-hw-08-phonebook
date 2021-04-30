@@ -15,21 +15,23 @@ const HomePage = () => (
 
       <div className={styles.thumb}>
         <HoleImage
-          title="Try in now!"
+          title="Try it now!"
           alt="Blackhole"
           className={styles.image}
         />
       </div>
 
-      <p className={styles.text}>Fast, Secure and Mobile Friendly React App.</p>
+      <p className={styles.text}>
+        Fast, Secure and Mobile Friendly React Application
+      </p>
 
       <NavLink
         to={routes.contacts}
         className={styles.button}
-        title="Try in now!"
+        title="Try it now!"
         aria-label="Go to contacts"
       >
-        Try in now!
+        Try it now!
       </NavLink>
     </section>
   </main>

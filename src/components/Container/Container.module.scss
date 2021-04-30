@@ -1,3 +1,5 @@
+@import '../../styles/shared.scss';
+
 // Main container styles
 .container {
   width: 100%;
@@ -5,15 +7,15 @@
   margin-right: auto;
   padding: 0 15px;
 
-  @media screen and (min-width: 480px) and (max-width: 767px) {
+  @media screen and (min-width: $mobile) and (max-width: $to-tablet) {
     width: calc(480px - 18px);
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
     width: calc(768px - 18px);
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $desktop) {
     width: calc(1200px - 18px);
   }
 }

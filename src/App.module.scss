@@ -1,7 +1,8 @@
+@import 'styles/shared.scss';
+
 body {
-  background-color: #f0f1f3;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
-    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  background-color: $bg-color;
+  font-family: $primary-font-stack;
   font-style: normal;
   line-height: 1.5;
 }

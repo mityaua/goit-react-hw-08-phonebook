@@ -1,3 +1,5 @@
+@import '../../styles/shared.scss';
+
 // Contact styles
 .item {
   display: flex;
@@ -6,7 +8,7 @@
   flex-basis: calc(100% / 1 - 15px);
 
   padding: 15px 5px;
-  border: 1px solid #d4d4d4;
+  border: 1px solid $border-color;
   border-radius: 4px;
 
   text-align: center;
@@ -14,26 +16,26 @@
   margin-left: 15px;
   margin-top: 15px;
 
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all $transition-duration $timing-function;
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
     flex-basis: calc(100% / 2 - 15px);
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: $desktop) {
     flex-basis: calc(100% / 3 - 15px);
   }
 
   &:hover,
   &:focus {
     background-color: rgb(33 150 243 / 10%);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color $transition-duration $timing-function;
   }
 }
 
 // Contact name
 .name {
-  color: #333232;
+  color: $secondary-color;
 
   text-transform: capitalize;
   font-weight: 500;
@@ -48,11 +50,11 @@
   font-weight: 700;
   text-decoration: none;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color $transition-duration $timing-function;
 
   &:hover,
   &:focus {
-    color: #2196f3;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: $main-color;
+    transition: color $transition-duration $timing-function;
   }
 }

@@ -1,24 +1,26 @@
-// Sign up form on Sign up page
+@import '../../styles/shared.scss';
+
+// Log in form
 .form {
   width: 100%;
-  margin: 0px auto 15px;
+  margin: 0 auto 15px;
   padding: 15px;
-  border: 1px solid #d4d4d4;
+  border: 1px solid $border-color;
   border-radius: 4px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     width: 350px;
   }
 }
 
-// Labels from inputs
+// Labels on inputs
 .label {
   display: flex;
   flex-direction: column;
 
   margin-bottom: 15px;
 
-  color: #333232;
+  color: $secondary-color;
 }
 
 // Labels text
@@ -31,34 +33,37 @@
   padding: 11px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  line-height: normal;
+
+  transition: all $transition-duration $timing-function;
 
   &:focus {
     outline: transparent;
-    border: 1px solid #2196f3;
+    border: 1px solid $main-color;
   }
 }
 
-// Sign up container
+// Log in button container
 .container {
   text-align: center;
 }
 
-// Sign up button
+// Log in button
 .button {
   min-width: 150px;
   height: 40px;
   border: 0px solid transparent;
   border-radius: 4px;
 
-  color: #fff;
-  background-color: #2196f3;
+  color: $clear-color;
+  background-color: $main-color;
 
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+  box-shadow: $main-shadow;
 
   opacity: 1;
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity $transition-duration $timing-function;
 
   cursor: pointer;
 
@@ -66,11 +71,11 @@
   &:focus {
     opacity: 0.8;
 
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity $transition-duration $timing-function;
   }
 
   &:disabled {
-    background-color: gray;
+    background-color: $inactive-color;
     cursor: auto;
   }
 }

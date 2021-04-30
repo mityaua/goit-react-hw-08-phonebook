@@ -1,3 +1,5 @@
+@import '../../styles/shared.scss';
+
 // Header
 .header {
   display: flex;
@@ -6,9 +8,9 @@
   flex-direction: column;
 
   padding: 20px;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid $border-color;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: $to-tablet) {
     flex-direction: row;
 
     padding: 0;
